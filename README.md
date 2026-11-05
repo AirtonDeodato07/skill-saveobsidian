@@ -1,5 +1,7 @@
 # `/saveobsidian` — salve a conversa com a IA no seu Obsidian
 
+**Português** · [English](README.en.md) · [Español](README.es.md)
+
 A conversa com a IA acaba, e o que foi decidido nela vai junto. Esta skill transforma o chat numa
 nota do seu vault do **Obsidian**: o que foi pedido, o que foi feito, o que estava errado e foi
 corrigido, o que você decidiu e o que ficou pendente. A próxima sessão lê a nota e continua de onde
@@ -42,6 +44,8 @@ Testada no Claude Code. Nos outros agentes a instalação é a mesma, mas o func
 testado.
 
 ## O que ela faz
+
+![Ciclo de quatro etapas: a skill acha o vault, escreve a memória do chat, atualiza o resto do vault e depois procura segredo e diz o que mudou; a próxima sessão lê a nota e continua dali.](docs/images/fluxo-pt.png)
 
 1. **Acha o vault**: a configuração, se houver, ou a pasta do projeto que tem `.obsidian/`. Se
    não achar, ela pergunta e guarda a resposta. Sem resposta, não cria nada.
@@ -89,6 +93,30 @@ cobre: [src/api/pedidos.ts]
 - [ ] Corrigir os 12 pedidos antigos.
 - [x] Corrigir a soma do frete.
 ```
+
+## Exemplos
+
+As imagens vêm de uma conversa real no Claude Code, num projeto fictício, a "Loja Exemplo": o usuário
+pergunta por que um pedido veio sem frete, pede a correção e digita `/saveobsidian`.
+
+### A nota
+
+A skill achou o vault sozinha, sem configuração, e criou a nota do chat.
+
+![A nota aberta no Obsidian, com as propriedades no topo e seções para o estado atual, a linha do tempo, as decisões do usuário e as pendências.](docs/images/memoria-pt.png)
+
+### O resto do vault
+
+A conversa deixou velha a regra do frete em `Módulos/Pedidos.md`. A skill corrigiu essa regra e ligou
+a nota nova ao `Home.md`.
+
+![Terminal com o git diff do vault: uma seção Sessões acrescentada ao Home.md e a regra do cupom reescrita em Pedidos.md.](docs/images/vault-pt.png)
+
+### A resposta
+
+No fim, ela diz o que criou, o que corrigiu e o que deixou de fora.
+
+![Terminal com o comando /saveobsidian e a mensagem final da skill, listando a nota nova, as notas corrigidas, a busca e o que ficou de fora.](docs/images/resposta-pt.png)
 
 ## Configuração (opcional)
 
